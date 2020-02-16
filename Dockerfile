@@ -1,6 +1,8 @@
 FROM node:alpine
 
-RUN npm -g i vuepress
+RUN set -x \
+    && npm -g i vuepress \
+    && rm -rf ~/.npm ~/.config
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
